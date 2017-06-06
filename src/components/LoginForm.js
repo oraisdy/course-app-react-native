@@ -15,15 +15,13 @@ export default class LoginForm extends Component {
                                 <Label>Password</Label>
                                 <Input />
                             </Item>
-                    <Item floatingLabel>
-                        <Button block success>
-                                <Text>登 录</Text>
-                            </Button>
-                        </Item>
                         </Form>
-                        
                     </Content>
-                    
+                    <Content>
+                        <Button block success>
+                            <Text>Success</Text>
+                        </Button>
+                    </Content>
                 </Container>
         );
     }

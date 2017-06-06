@@ -1,4 +1,3 @@
-
 export default {
     auth:"/user/auth",
     groups: "/group",

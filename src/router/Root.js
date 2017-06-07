@@ -15,71 +15,15 @@ class Root extends Component {
           <Router>
             <Scene key="root">
               <Scene key="login" component={Login} hideNavBar title="Login"/>
-                <Scene key="task" icon={TabIcon} component={Tasks} initial title="Tasks"/>
-                <Scene key="courses" icon={TabIcon} component={Courses} title="Courses"/>                 
+                <Scene key="task" component={Tasks} title="Tasks"/>
+                <Scene key="courses" component={Courses} initial title="Courses"/>                 
             </Scene>
           </Router>     
-          <Footer>
-              <FooterTab>
-                  <Button>
-                      <Icon name="apps" />
-                  </Button>
-                  <Button onPress={Actions.task}>
-                      <Icon name="paper" />
-                  </Button>
-                  <Button active>
-                      <Icon active name="navigate" />
-                  </Button>
-                  <Button>
-                      <Icon name="person" />
-                  </Button>
-              </FooterTab>
-          </Footer>
+          <TabBar/>
       </Container>
     
     );
   }
 }
 
-const styles = StyleSheet.create({
-    tabBar: {
-        backgroundColor: '#ffffff',
-    },
-    tabBarSelectedItem: {
-        backgroundColor: '#ffffff',
-    },
-
-    tabBarSelectedTitle: {
-        color: '#06C1AE',
-    },
-    tabBarUnselectedTitle: {
-        color: '#979797',
-    },
-
-    tabBarSelectedImage: {
-        tintColor: '#06C1AE',
-    },
-    tabBarUnselectedImage: {
-        tintColor: '#979797'
-    },
-
-    navigationBarStyle: {
-        backgroundColor: 'white'
-    },
-    navigationBarTitle: {
-        color: '#333333'
-    },
-    navigationBarButtonIcon: {
-        tintColor: '#06C1AE'
-    },
-});
-
 export default Root;
-
-class TabIcon extends React.Component {
-    render(){
-        return (
-            <Text>122</Text>
-        );
-    }
-}

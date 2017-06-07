@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {StyleSheet, View, WebView} from 'react-native';
+import {StyleSheet, View, Text, WebView} from 'react-native';
+
 // import CookieManager from 'react-native-cookies';
 // import LoggedIn from './LoggedIn'
 
@@ -57,7 +58,11 @@ export default class Login extends Component {
     // If we have completed loading the cookie choose to show Login WebView or the LoggedIn component, else just show an empty View.
     
     return (
-        <LoginForm/>
+      <LoginForm/>
+        /*<View>
+          <Text onPress={Actions.task}>This is PageOne!</Text>
+          
+        </View>*/
     );
       
   }

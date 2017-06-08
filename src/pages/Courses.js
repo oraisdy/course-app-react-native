@@ -5,7 +5,7 @@ import CourseList from '../components/CourseList';
 export default class Courses extends Component {
     render(){
         return (
-            <Container>
+            // <Container>
                 <Content>
                     <Card>
                         <CardItem header>
@@ -81,7 +81,7 @@ export default class Courses extends Component {
                         </CardItem>
                    </Card>
                 </Content>
-            </Container>
+            // </Container>
         
          
         );

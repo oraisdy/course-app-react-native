@@ -7,18 +7,19 @@ import Login from '../pages/Login';
 import Tasks from '../pages/Tasks';
 import Courses from '../pages/Courses';
 import TabBar from '../components/Footer';
+import NavBar from '../components/Header';
 
 class Root extends Component {
   render() {
     return (
-      <Container>
+       <Container>
           <Router>
-            <Scene key="root">
-              <Scene key="login" component={Login} hideNavBar title="Login"/>
-                <Scene key="task" component={Tasks} title="Tasks"/>
-                <Scene key="courses" component={Courses} initial title="Courses"/>                 
+            <Scene key="root" navBar={NavBar}>
+              <Scene key="login" initial component={Login} title="登录" hideNavBar/>
+                <Scene key="task" component={Tasks} title="作业" hideNavBar={false}/>
+                <Scene key="courses" component={Courses} title="课程" hideNavBar={false}/>                 
             </Scene>
-          </Router>     
+          </Router>   
           <TabBar/>
       </Container>
     

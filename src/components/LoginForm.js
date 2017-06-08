@@ -7,24 +7,24 @@ export default class LoginForm extends Component {
     render() {
         return (
             <Container>
-                    <Content>
-                        <Form>
-                            <Item floatingLabel>
-                                <Label>Username</Label>
-                                <Input />
-                            </Item>
-                            <Item floatingLabel last>
-                                <Label>Password</Label>
-                                <Input />
-                            </Item>
-                        </Form>
-                    </Content>
-                    <Content>
-                        <Button block success onPress={Actions.task}>
-                            <Text>Success</Text>
-                        </Button>
-                    </Content>
-                </Container>
+                <Content>
+                    <Form>
+                        <Item floatingLabel>
+                            <Label>用户名</Label>
+                            <Input />
+                        </Item>
+                        <Item floatingLabel last>
+                            <Label>密码</Label>
+                            <Input />
+                        </Item>
+                    </Form>
+                </Content>
+                <Content>
+                    <Button block success onPress={Actions.task}>
+                        <Text>登录</Text>
+                    </Button>
+                </Content>
+            </Container>
         );
     }
 }

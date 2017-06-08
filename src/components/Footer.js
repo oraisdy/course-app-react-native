@@ -5,7 +5,6 @@ import { Actions} from 'react-native-router-flux';
 export default class TabBar extends Component {
     render() {
         return (
-           
             <Footer >
                 <FooterTab>
                     <Button active onPress={Actions.courses}>
@@ -15,10 +14,10 @@ export default class TabBar extends Component {
                         <Icon name="paper" />
                     </Button>
                     <Button>
-                        <Icon name="navigate" />
+                        <Icon name="flask" />
                     </Button>
                     <Button>
-                        <Icon name="person" />
+                        <Icon name="podium" />
                     </Button>
                 </FooterTab>
             </Footer>

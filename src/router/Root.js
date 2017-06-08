@@ -13,16 +13,18 @@ class Root extends Component {
   render() {
     return (
        <Container>
+         {/*<Content>*/}
+          {/*<NavBar/>*/}
           <Router>
-            <Scene key="root" navBar={NavBar}>
-              <Scene key="login" initial component={Login} title="登录" hideNavBar/>
-                <Scene key="task" component={Tasks} title="作业" hideNavBar={false}/>
-                <Scene key="courses" component={Courses} title="课程" hideNavBar={false}/>                 
+            <Scene key="root" hideNavBar>
+              <Scene key="login" component={Login} title="登录" hideNavBar/>
+                <Scene key="task" component={Tasks} title="作业" hideNavBar/>
+                <Scene key="courses" initial component={Courses} title="课程"/>                 
             </Scene>
-          </Router>   
+          </Router> 
+          {/*</Content>  */}
           <TabBar/>
       </Container>
-    
     );
   }
 }

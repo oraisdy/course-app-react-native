@@ -1,89 +1,62 @@
 import React, { Component } from 'react';
-import { Container, Content, Card, CardItem, Text, Body,Icon,Right,Button } from 'native-base';
-import CourseList from '../components/CourseList';
+import { Container, Content, Card, Header,Item,Input,CardItem,Badge, Left,Image,Grid,Col,Text, Body,Icon,Right,Button } from 'native-base';
 
 export default class Courses extends Component {
     render(){
         return (
-            // <Container>
+            <Container>
                 <Content>
+                    <Header searchBar rounded>
+                        <Item>
+                            <Icon name="ios-search" />
+                            <Input placeholder="Search" />
+                        </Item>
+                        {/*<Button transparent>
+                            <Text>Search</Text>
+                        </Button>*/}
+                    </Header>
                     <Card>
-                        <CardItem header>
-                            <Text>软件工程</Text>
-                            <Right>
-                                <Button transparent primary iconLeft>
-                                    <Icon name='person' />
-                                    <Text>33</Text>
-                                </Button>
-                            </Right>
-                        </CardItem>
                         <CardItem>
-                            <Body>
-                                <Text>
-                                    教师：刘钦
-                                </Text>
-                            </Body>
-                        </CardItem>
-                        <CardItem>
-                            <Icon active name="logo-googleplus" />
-                            <Text>作业</Text>
-                            <Right>
-                                <Icon name="arrow-forward" />
-                            </Right>
-                        </CardItem>
-                        <CardItem>
-                            <Icon active name="logo-googleplus" />
-                            <Text>练习</Text>
-                            <Right>
-                                <Icon name="arrow-forward" />
-                            </Right>
-                        </CardItem>
-                        <CardItem>
-                            <Icon active name="logo-googleplus" />
-                            <Text>考试</Text>
-                            <Right>
-                                <Icon name="arrow-forward" />
-                            </Right>
-                        </CardItem>
-                   </Card>
-
-                   <Card>
-                        <CardItem header>
-                            <Text>软件工程</Text>
-                        </CardItem>
-                        <CardItem>
-                            <Body>
-                                <Text>
-                                    //Your text here
-                                </Text>
-                            </Body>
-                        </CardItem>
-                        <CardItem>
-                            <Icon active name="logo-googleplus" />
-                            <Text>作业</Text>
-                            <Right>
-                                <Icon name="arrow-forward" />
-                            </Right>
-                        </CardItem>
-                        <CardItem>
-                            <Icon active name="logo-googleplus" />
-                            <Text>练习</Text>
-                            <Right>
-                                <Icon name="arrow-forward" />
-                            </Right>
-                        </CardItem>
-                        <CardItem>
-                            <Icon active name="logo-googleplus" />
-                            <Text>考试</Text>
-                            <Right>
-                                <Icon name="arrow-forward" />
-                            </Right>
+                            <Left>
+                                <Badge primary>
+                                    <Text>R</Text>
+                                </Badge>
+                                <Body>
+                                    <Text>软件工程</Text>
+                                    <Text note>刘钦</Text>
+                                </Body>
+                            </Left>
+                          </CardItem>
+                          {/*<CardItem cardBody>
+                              <Text>....</Text>
+                          </CardItem>*/}
+                          <CardItem>
+                              <Grid>
+                                <Col>
+                                    <Button transparent>
+                                        <Icon active name="paper" />
+                                        <Text>作业</Text>
+                                    </Button>
+                                </Col>
+                                <Col>
+                                    <Button transparent>
+                                        <Icon active name="flask" />
+                                        <Text>练习</Text>
+                                    </Button>
+                                </Col>
+                                <Col>
+                                    <Button transparent>
+                                        <Icon active name="podium" />
+                                        <Text>考试</Text>
+                                    </Button>
+                                </Col>
+                            </Grid>
+                             
+        
                         </CardItem>
                    </Card>
                 </Content>
-            // </Container>
-        
-         
+            </Container>  
         );
     }
 } 

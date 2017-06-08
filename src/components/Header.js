@@ -6,7 +6,7 @@ import { View} from 'react-native';
 export default class TabBar extends Component {
     render() {
         return (
-            <View style={{position: 'absolute', top: 0, left: 0, right:0 }}>
+            // <View>
                <Header>
                 <Left>
                     <Button transparent>
@@ -22,7 +22,7 @@ export default class TabBar extends Component {
                     </Button>
                 </Right>*/}
                 </Header>
-            </View>
+            // </View>
         );
     }
 }

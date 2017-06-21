@@ -13,10 +13,10 @@ export default class TabBar extends Component {
                     <Button onPress={Actions.task}>
                         <Icon name="paper" />
                     </Button>
-                    <Button>
+                    <Button onPress={Actions.exercise}>
                         <Icon name="flask" />
                     </Button>
-                    <Button>
+                    <Button onPress={Actions.exam}>
                         <Icon name="podium" />
                     </Button>
                 </FooterTab>

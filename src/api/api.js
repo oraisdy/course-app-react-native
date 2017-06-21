@@ -7,4 +7,5 @@ export default {
     exercises:"/course/{courseId}/exercise",
     scores:"/assignment/{assignmentId}/score",
     analysis:"/assignment/{assignmentId}/student/{studentId}/analysis",
+    readme:"/assignment/{assignmentID}/student/{studentID}/question/{questionID}",
 }

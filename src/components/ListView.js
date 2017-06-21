@@ -37,7 +37,7 @@ export default class ListView extends Component {
         <Card key={task.id}>
           <Button
             transparent
-            onPress={() => Actions.assignment({ id: task.id })}
+            onPress={() => Actions.assignment({ task: task })}
           >
             <CardItem>
               <Left>

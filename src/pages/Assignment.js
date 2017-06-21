@@ -1,32 +1,38 @@
 import React from "react";
-import { Text } from "native-base";
-import request from "../api/request"
-import api from "../api/api"
+import {
+  Container, Header, Tab, Tabs, TabHeading, Icon, Text
+} from "native-base";
+import update from "react-addons-update";
+import request from "../api/request";
+import api from "../api/api";
+import Questions from "./Questions";
 
 export default class Assignment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: props.id,
-      readme:""
+      task: props.task,
     };
   }
 
   componentDidMount() {
-    request.get(
-      api.readme,
-      (data) => {
-        this.setState({ readme: data.content });
-      },
-      [this.state.id,227,26]
-    );
-  }
-
-  requestData() {
-    
+    // this.requestData();
   }
 
   render() {
-    return <Text>{this.state.readme}</Text>;
+    return(
+      <Container>
+        <Header hasTabs/>
+        <Tabs>
+          <Tab heading={ <TabHeading><Icon name="bulb" /><Text>题目</Text></TabHeading>}>
+            <Questions task={this.state.task}/>
+          </Tab>
+          
+          <Tab heading={ <TabHeading><Icon name="pie" /><Text>分析</Text></TabHeading>}>
+            <Questions task={this.state.task}/>
+          </Tab>
+        </Tabs>
+      </Container>
+    ) ;
   }
 }

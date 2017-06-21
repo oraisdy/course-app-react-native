@@ -1,11 +1,12 @@
+var Buffer = require('buffer').Buffer
+
 export default {
-  get: (url, params = []) => {
+  get: (url, callback, params = []) => {
 
     url = BASE + url;
     params.forEach((param) => {
-      url.replace(/{\w+}/, param);
+      url = url.replace(/{\w+}/, param);
     });
-    // console.log(url);
     fetch(url, {
         headers: {
           "Authorization": "Basic " + new Buffer(username + ":" + password).toString('base64')
@@ -13,7 +14,7 @@ export default {
       })
       .then((response) => response.json())
       .then((json) => {
-        console.log(JSON.stringify(json));
+        callback(json);
       });
   },
 
@@ -33,6 +34,6 @@ export default {
       });
   }
 }
-var username;
-var password;
+var username="nanguangtailang";
+var password="123";
 const BASE = "http://115.29.184.56:8090/api";

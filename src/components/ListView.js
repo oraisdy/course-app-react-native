@@ -12,8 +12,10 @@ import {
   Text,
   Body,
   Icon,
-  Right
+  Right,
+  Button
 } from "native-base";
+import { Actions } from "react-native-router-flux";
 
 export default class ListView extends Component {
   constructor(props) {
@@ -33,15 +35,20 @@ export default class ListView extends Component {
     var Cards = this.state.tasks.map(task => {
       return (
         <Card key={task.id}>
-          <CardItem>
-            <Left>
-              <Icon active name="paper" />
-              <Body>
-                <Text>{task.title}</Text>
-                <Text note>刘钦</Text>
-              </Body>
-            </Left>
-          </CardItem>
+          <Button
+            transparent
+            onPress={() => Actions.assignment({ id: task.id })}
+          >
+            <CardItem>
+              <Left>
+                <Icon active name="paper" />
+                <Body>
+                  <Text>{task.title} {task.id}</Text>
+                  <Text note>刘钦</Text>
+                </Body>
+              </Left>
+            </CardItem>
+          </Button>
           <CardItem>
             <Body>
               <Text>

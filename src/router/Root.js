@@ -7,6 +7,7 @@ import Tasks from "../pages/Tasks";
 import Courses from "../pages/Courses";
 import Exercises from "../pages/Exercises";
 import Exams from "../pages/Exams";
+import Assignment from "../pages/Assignment";
 import TabBar from "../components/Footer";
 import NavBar from "../components/Header";
 
@@ -23,6 +24,7 @@ class Root extends Component {
             <Scene key="exercise" component={Exercises} title="练习" hideNavBar/>
             <Scene key="exam" component={Exams} title="考试" hideNavBar/>
             <Scene key="courses" initial component={Courses} title="课程" />
+            <Scene key="assignment" component={Assignment} title="作业" hideNavBar />
           </Scene>
         </Router>
         {/*</Content>  */}

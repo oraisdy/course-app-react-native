@@ -1,21 +1,10 @@
-import React, { Component } from 'react';
-import {StyleSheet, View, Text, WebView} from 'react-native';
+import React, { Component } from "react";
+import { Container, Content, Button, Text } from 'native-base';
 
-// import CookieManager from 'react-native-cookies';
-// import LoggedIn from './LoggedIn'
-
-import LoginForm from '../components/LoginForm'
-
-// Change these to reflect
-const LOGIN_URL = "http://localhost:3000/login/";
-const HOME_URL = "http://localhost:3000/";
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-  }
-});
+import LoginForm from "../components/LoginForm";
+import request from "../api/request";
+import api from "../api/api";
+import { Actions } from "react-native-router-flux";
 
 export default class Login extends Component {
   constructor(props) {
@@ -26,44 +15,27 @@ export default class Login extends Component {
     };
   }
 
-//   componentWillMount () {
-//     CookieManager.get(HOME_URL, (err, cookie) => {
-//       let isAuthenticated;
-//       // If it differs, change `cookie.remember_me` to whatever the name for your persistent cookie is!!!
-//       if (cookie && cookie.hasOwnProperty('remember_me')) {
-//         isAuthenticated = true;
-//       }
-//       else {
-//         isAuthenticated = false;
-//       }
-
-//       this.setState({
-//         loggedIn: isAuthenticated,
-//         loadedCookie: true
-//       });
-//     });
-//   }
-
-  onNavigationStateChange (navState) {
-    // If we get redirected back to the HOME_URL we know that we are logged in. If your backend does something different than this
-    // change this line.
-    if (navState.url == HOME_URL) {
-      this.setState({
-        loggedIn: true,
-      });
-    }
+  onLogin(username, password) {
+    var ok;
+    var type;
+    request.login(api.auth, { username, password }).then(json => {
+      if (json) {
+        if (json.type === "teacher") {
+          Actions.group();
+        } else if (json.type === "student") {
+          Actions.courses();
+        }
+      }
+    });
   }
 
-  render () {
-    // If we have completed loading the cookie choose to show Login WebView or the LoggedIn component, else just show an empty View.
-    
+  render() {
     return (
-      <LoginForm/>
-        /*<View>
-          <Text onPress={Actions.task}>This is PageOne!</Text>
-          
-        </View>*/
+      <Container>
+        <Content>
+          <LoginForm onLogin={this.onLogin} />
+        </Content>
+      </Container>
     );
-      
   }
 }

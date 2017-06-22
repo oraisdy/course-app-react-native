@@ -19,16 +19,18 @@ class Root extends Component {
       <Container>
         {/*<Content>*/}
         {/*<NavBar/>*/}
+        {/*<Login />*/}
         <Router>
-          <Scene key="root" hideNavBar>
-            <Scene key="student" component={Student} title="" hideNavBar />
-            <Scene key="login" component={Login} title="登录" hideNavBar />
-            <Scene key="group" component={Group} initial title="群组" hideNavBar />
-            <Scene key="task" component={Tasks} title="作业" hideNavBar />
-            <Scene key="exercise" component={Exercises} title="练习" hideNavBar/>
-            <Scene key="exam" component={Exams} title="考试" hideNavBar/>
+          <Scene key="root">
+            {/*<Scene key="initial" initial title="登录" hideNavBar />*/}
+            <Scene key="login" component={Login}  title="登录" hideNavBar />
+            <Scene key="student" component={Student} title="学生列表" />
+            <Scene key="group" component={Group}  title="群组" />
+            <Scene key="task" component={Tasks} title="作业" />
+            <Scene key="exercise" component={Exercises} initial title="练习" />
+            <Scene key="exam" component={Exams} title="考试" />
             <Scene key="courses" component={Courses} title="课程" />
-            <Scene key="assignment" component={Assignment} title="作业" hideNavBar />
+            <Scene key="assignment" component={Assignment} title="作业" />
           </Scene>
         </Router>
         {/*</Content>  */}

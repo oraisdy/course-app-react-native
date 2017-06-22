@@ -44,7 +44,7 @@ export default class Group extends React.Component {
                   <Text>R</Text>
                 </Badge>
                 <Body>
-                  <Text>{group.name} {group.id}</Text>
+                  <Text>{group.name}</Text>
                   {/*<Text note>难度：{question.difficulty}</Text>*/}
                 </Body>
               </Left>

@@ -4,13 +4,17 @@ import request from "../src/api/request";
 import api from "../src/api/api";
 
 it("renders correctly", () => {
-  // request.login(api.auth, {
-  //     username: "nanguangtailang",
-  //     password: "123"
-  // });
-  // request.get(api.groups, function(data) {
-  //   console.log(data);
-  // });
+  request.login(
+    api.auth,
+    {
+      username: "liuqin",
+      password: "123"
+    }
+  ).then((json)=>console.log(json));
+
+  request.get(api.groups, function(data) {
+    console.log(data);
+  });
 
   // request.get(
   //   api.homeworks,
@@ -26,8 +30,6 @@ it("renders correctly", () => {
   //   },
   //   [8]
   // );
-
- 
 
   // request.get(api.groups);
 

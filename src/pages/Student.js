@@ -56,11 +56,31 @@ export default class Student extends React.Component {
               {/*</Right>*/}
             </ListItem>
       ));
-    return (
+    /*return (
       <Container>
         <Content>
           <List>
             {Students}
+          </List>
+        </Content>
+      </Container>
+    );*/
+
+    // var items = ['Simon Mignolet','Nathaniel Clyne','Dejan Lovren','Mama Sakho','Emre Can'];
+    return (
+      <Container>
+        <Content>
+          <List dataArray={this.state.students}
+            renderRow={(student) =>
+              <ListItem>
+                <Body>
+                <Text>{student.name}</Text>
+                <Text note>
+                  {student.id}
+                </Text>
+                </Body>
+              </ListItem>
+            }>
           </List>
         </Content>
       </Container>

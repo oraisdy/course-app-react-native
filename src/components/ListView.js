@@ -58,7 +58,7 @@ export default class ListView extends Component {
                 开始时间：{task.startAt}
               </Text>
               <Badge success>
-                <Text>{task.status}</Text>
+                <Text style={{lineHeight:31}}>{task.status}</Text>
               </Badge>
             </Body>
           </CardItem>

@@ -12,7 +12,7 @@ export default {
     return fetch(url, {
       headers: {
         Authorization:
-          "Basic " + new Buffer(username||'liuqin' + ":" + password||'123').toString("base64")
+          "Basic " + new Buffer((username||'liuqin') + ":" + (password||'123')).toString("base64")
       }
     })
       .then(response => response.json())

@@ -7,8 +7,9 @@ import {
   Text,
   Left,
   Body,
-  Icon,List,ListItem
+  Icon
 } from "native-base";
+import BarChart from "../components/BarChart";
 import update from "react-addons-update";
 import request from "../api/request";
 import api from "../api/api";
@@ -18,7 +19,8 @@ export default class Analysis extends React.Component {
     super(props);
     this.state = {
       task: props.task,
-      questions: props.task.questions
+      questions: props.task.questions,
+      scores: []
     };
   }
 
@@ -30,18 +32,20 @@ export default class Analysis extends React.Component {
     request.get(
       api.scores,
       data => {
+        var scores = [];
+        data.questions.map((ques, index) => {
+          scores.push(ques.students);
+        });
         this.setState({
-          questions: update(this.state.questions, {
-            0: { scores: { $set: (data.questions)[0].students } }
-          })
+          scores: scores
         });
       },
-      [38]
+      [38] //this.state.task.id
     );
   }
 
   render() {
-    var Cards = this.state.questions.map(question => {
+    var Cards = this.state.questions.map((question, index) => {
       return (
         <Card key={question.id}>
 
@@ -57,14 +61,7 @@ export default class Analysis extends React.Component {
 
           <CardItem>
             <Body>
-              <List dataArray={question.scores}
-            renderRow={(item) =>
-              <ListItem>
-                <Text>{item.score}</Text>
-              </ListItem>
-            }>
-          </List>
-
+              <BarChart data={this.state.scores[index]} />
             </Body>
           </CardItem>
         </Card>

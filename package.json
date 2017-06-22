@@ -12,6 +12,7 @@
     "react": "16.0.0-alpha.6",
     "react-addons-update": "^15.6.0",
     "react-native": "0.44.2",
+    "react-native-chart": "^1.0.8-beta",
     "react-native-router-flux": "^3.39.2"
   },
   "devDependencies": {

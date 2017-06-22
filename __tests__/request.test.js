@@ -27,9 +27,7 @@ it("renders correctly", () => {
   //   [8]
   // );
 
-  request.get(api.scores, function(data) {
-    console.log((data.questions)[0].students)
-  }, [38]);
+ 
 
   // request.get(api.groups);
 

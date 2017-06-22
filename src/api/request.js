@@ -6,7 +6,7 @@ export default {
     params.forEach(param => {
       url = url.replace(/{\w+}/, param);
     });
-    fetch(url, {
+    return fetch(url, {
       headers: {
         Authorization:
           "Basic " + new Buffer(username + ":" + password).toString("base64")

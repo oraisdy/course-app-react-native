@@ -6,6 +6,7 @@ import update from "react-addons-update";
 import request from "../api/request";
 import api from "../api/api";
 import Questions from "./Questions";
+import Analysis from "./Analysis";
 
 export default class Assignment extends React.Component {
   constructor(props) {
@@ -29,7 +30,7 @@ export default class Assignment extends React.Component {
           </Tab>
           
           <Tab heading={ <TabHeading><Icon name="pie" /><Text>分析</Text></TabHeading>}>
-            <Questions task={this.state.task}/>
+            <Analysis task={this.state.task}/>
           </Tab>
         </Tabs>
       </Container>

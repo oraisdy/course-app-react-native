@@ -8,20 +8,28 @@ it("renders correctly", () => {
   //     username: "nanguangtailang",
   //     password: "123"
   // });
-  request.get(api.groups, function(data) {
-    console.log(data);
-  });
+  // request.get(api.groups, function(data) {
+  //   console.log(data);
+  // });
 
-  request.get(
-    api.homeworks,
-    function(data) {
-      console.log(data);
-    },
-    [2]
-  );
+  // request.get(
+  //   api.homeworks,
+  //   function(data) {
+  //     console.log(data);
+  //   },
+  //   [2]
+  // );
+  // request.get(
+  //   api.students,
+  //   function(data) {
+  //     console.log(data);
+  //   },
+  //   [8]
+  // );
 
-
-  
+  request.get(api.scores, function(data) {
+    console.log((data.questions)[0].students)
+  }, [38]);
 
   // request.get(api.groups);
 

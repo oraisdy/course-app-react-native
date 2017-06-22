@@ -26,9 +26,9 @@ class Root extends Component {
             <Scene key="group" component={Group} initial title="群组" />
             <Scene key="task" component={Tasks} title="作业" />
             <Scene key="exercise" component={Tasks}  title="练习" />
-            <Scene key="exam" component={Exams} title="考试" />
+            <Scene key="exam" component={Tasks} title="考试" />
             <Scene key="courses" component={Courses} title="课程" />
-            <Scene key="assignment" component={Tasks} title="作业" />
+            <Scene key="assignment" component={Assignment} title="作业" />
           </Scene>
         </Router>
         {/*</Content>  */}

@@ -17,10 +17,10 @@ export default class Tasks extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      primitive:[],
+      primitive: [],
       tasks: [],
-      keyword:"",
-      type:props.taskType,
+      keyword: "",
+      type: props.taskType
     };
   }
   componentDidMount() {
@@ -30,7 +30,7 @@ export default class Tasks extends Component {
     request.get(
       api[this.state.type],
       data => {
-        this.setState({ primitive:data,tasks: data });
+        this.setState({ primitive: data, tasks: data });
       },
       [2]
     );
@@ -41,9 +41,23 @@ export default class Tasks extends Component {
         <Header searchBar backgroundColor="#eee">
           <Item>
             <Icon name="ios-search" />
-            <Input placeholder="Search" value={this.state.keyword} onChangeText={e=>this.setState({keyword:e,tasks:this.state.primitive.filter(
-              task=>task.title.includes(e)||(task.description&&task.description.includes(e))
-            )})}/>
+            <Input
+              placeholder="Search"
+              value={this.state.keyword}
+              onChangeText={e =>
+                this.setState({
+                  keyword: e,
+                  tasks: this.state.primitive.filter(
+                    task =>
+                      task.title.includes(e) ||
+                      (task.description && task.description.includes(e))
+                  )
+                })}
+            />
+            <Icon
+              name="ios-close"
+              onPress={e => this.setState({ keyword: "", tasks: this.state.primitive })}
+            />
           </Item>
           <Button transparent>
             <Text>Search</Text>

@@ -37,48 +37,13 @@ export default class ListView extends Component {
   }
 
   render() {
-    var Cards = this.state.tasks.map(task => {
-      return (
-        <Card key={task.id}>
-          <Button
-            transparent
-            onPress={() => Actions.assignment({ task: task })}
-          >
-            <CardItem>
-              <Left>
-                <Icon active name="paper" />
-                <Body>
-                  <Text>{task.title} {task.id}</Text>
-                  <Text note>刘钦</Text>
-                </Body>
-              </Left>
-            </CardItem>
-          </Button>
-          <CardItem>
-            <Body>
-              <Text>
-                {task.description}
-              </Text>
-              <Text>
-                开始时间：{task.startAt}
-              </Text>
-              <Badge success>
-                <Text>{statusDict[task.status]}</Text>
-              </Badge>
-            </Body>
-          </CardItem>
-        </Card>
-      );
-    });
     return (
       <Container>
         <Content>
-
           <List
             dataArray={this.state.tasks}
             renderRow={task =>
               <ListItem>
-
                 <Body>
                   <TouchableOpacity
                     onPress={() => Actions.assignment({ task: task })}

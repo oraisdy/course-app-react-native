@@ -2,15 +2,21 @@ import React from "react";
 import {
   Container,
   Content,
-  Card,
-  CardItem,
+  Header,
+  Item,
+  Input,
+  List,
+  ListItem,
   Text,
+  Grid,
+  Col,
   Left,
   Body,
   Icon,
   Badge,
   Button
 } from "native-base";
+import { TouchableOpacity, View } from "react-native";
 import api from "../api/api";
 import request from "../api/request";
 import { Actions } from "react-native-router-flux";
@@ -19,7 +25,9 @@ export default class Group extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      groups: []
+      primitive:[],
+      groups: [],
+      keyword:"",
     };
   }
 
@@ -29,46 +37,63 @@ export default class Group extends React.Component {
 
   requestData() {
     request.get(api.groups, data => {
-      this.setState({ groups: data });
+      this.setState({ primitive:data,groups: data });
     });
   }
 
   render() {
-    var Cards = this.state.groups.map(group => {
-      return (
-        <Card key={group.id}>
-          <Button transparent onPress={() => Actions.student({ group: group })}>
-            <CardItem>
-              <Left>
-                <Badge primary>
-                  <Text>R</Text>
-                </Badge>
-                <Body>
-                  <Text>{group.name}</Text>
-                  {/*<Text note>难度：{question.difficulty}</Text>*/}
-                </Body>
-              </Left>
-            </CardItem>
-          </Button>
-          {/*<CardItem>
-            <Body>
-              <Text>
-                描述：{question.description}
-              </Text>
-              <Text>
-                Readme：
-                {question.readme}
-              </Text>
-
-            </Body>
-          </CardItem>*/}
-        </Card>
-      );
-    });
     return (
       <Container>
+        <Header searchBar backgroundColor="#eee">
+          <Item>
+            <Icon name="ios-search" />
+            <Input
+              placeholder="Search"
+              value={this.state.keyword}
+              onChangeText={e =>
+                this.setState({
+                  keyword: e,
+                  groups: this.state.primitive.filter(
+                    g =>
+                      g.name.includes(e)
+                  )
+                })}
+            />
+            <Icon
+              name="ios-close"
+              onPress={e => this.setState({ keyword: "", groups: this.state.primitive })}
+            />
+          </Item>
+          <Button transparent>
+            <Text>Search</Text>
+          </Button>
+        </Header>
         <Content>
-          {Cards}
+          <List
+            dataArray={this.state.groups}
+            renderRow={group =>
+              <ListItem>
+                <Body>
+                  <TouchableOpacity
+                    onPress={() => Actions.student({ group: group })}
+                  >
+                    <Grid style={{ alignItems: "center" }}>
+                      <Col size={1}>
+                        <Icon
+                          active
+                          name="people"
+                          style={{ fontSize: 32, width: 32 }}
+                        />
+                      </Col>
+                      <Col size={8}>
+                        <Text style={{ fontSize: 20 }}>{group.name}</Text>
+                      </Col>
+                    </Grid>
+
+                  </TouchableOpacity>
+                </Body>
+              </ListItem>}
+          />
         </Content>
       </Container>
     );

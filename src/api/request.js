@@ -12,7 +12,10 @@ export default {
     return fetch(url, {
       headers: {
         Authorization:
-          "Basic " + new Buffer((username||'liuqin') + ":" + (password||'123')).toString("base64")
+          "Basic " +
+            new Buffer(
+              (username || "liuqin") + ":" + (password || "123")
+            ).toString("base64")
       }
     })
       .then(response => response.json())
@@ -33,9 +36,9 @@ export default {
       if (res.ok) {
         var json = res.json();
         username = params.username;
-       password = params.password;
+        password = params.password;
         return json;
-      } 
+      }
     });
   }
 };

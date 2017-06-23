@@ -20,10 +20,11 @@ export default class Login extends Component {
     var type;
     request.login(api.auth, { username, password }).then(json => {
       if (json) {
+        global.role = json.type;
         if (json.type === "teacher") {
-          Actions.group();
+          Actions.teacher_page();
         } else if (json.type === "student") {
-          Actions.courses();
+          Actions.student_page();
         }
       }
     });

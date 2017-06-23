@@ -46,7 +46,10 @@ export default class ListView extends Component {
               <ListItem>
                 <Body>
                   <TouchableOpacity
-                    onPress={() => Actions.assignment({ task: task })}
+                    onPress={() =>
+                      global.role === "student"
+                        ? Actions.student_assignment({ task: task })
+                        : Actions.teacher_assignment({ task: task })}
                   >
                     <Grid style={{ alignItems: "center" }}>
                       <Col size={1}>
@@ -57,7 +60,7 @@ export default class ListView extends Component {
                         />
                       </Col>
                       <Col size={8}>
-                        <Text style={{ fontSize: 20 }}>{task.title}</Text>
+                        <Text>{task.title}</Text>
                         <Text note>{task.description}</Text>
                       </Col>
                       <Col size={4}>
@@ -77,7 +80,7 @@ export default class ListView extends Component {
                           </Col>
                           <Col
                             style={{
-                              borderRightColor: '#eee',
+                              borderRightColor: "#eee",
                               borderRightWidth: 1,
                               marginRight: 30
                             }}

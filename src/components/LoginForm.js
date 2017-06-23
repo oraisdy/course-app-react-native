@@ -32,7 +32,7 @@ export default class LoginForm extends Component {
       <Container style={{ padding: 10 }}>
         <Content>
           <Icon
-            name="analytics"
+            name="planet"
             style={{
               fontSize: 80,
               alignSelf: "center",

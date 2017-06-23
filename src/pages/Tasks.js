@@ -8,19 +8,23 @@ import {
   Button,
   Text
 } from "native-base";
-
+// import TabBar from "../components/Footer";
 import request from "../api/request";
 import api from "../api/api";
 import ListView from "../components/ListView";
 
-export default class Tasks extends Component {
+export var Exercises = ()=><Tasks taskType="exercises" />;
+export var Exams = ()=><Tasks taskType="exams" />
+export var Assignments = ()=><Tasks taskType="homeworks" />
+
+export class Tasks extends Component {
   constructor(props) {
     super(props);
     this.state = {
       primitive: [],
       tasks: [],
       keyword: "",
-      type: props.taskType
+      type: props.taskType,
     };
   }
   componentDidMount() {
@@ -64,6 +68,7 @@ export default class Tasks extends Component {
           </Button>
         </Header>
         <ListView tasks={this.state.tasks} />
+         {/*<TabBar />*/}
       </Container>
     );
   }

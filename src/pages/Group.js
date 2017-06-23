@@ -86,7 +86,7 @@ export default class Group extends React.Component {
                         />
                       </Col>
                       <Col size={8}>
-                        <Text style={{ fontSize: 20 }}>{group.name}</Text>
+                        <Text>{group.name}</Text>
                       </Col>
                     </Grid>
 
@@ -95,6 +95,7 @@ export default class Group extends React.Component {
               </ListItem>}
           />
         </Content>
+        {/*<TabBar />*/}
       </Container>
     );
   }

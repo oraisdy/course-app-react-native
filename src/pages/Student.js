@@ -1,4 +1,5 @@
 import React from "react";
+import { StyleSheet, Platform } from "react-native";
 import {
   Container,
   Content,
@@ -28,10 +29,9 @@ export default class Student extends React.Component {
   }
 
   requestData() {
-      
     request.get(
       api.students,
-      (data) => {
+      data => {
         this.setState({ students: data });
       },
       [this.state.group.id]
@@ -39,23 +39,24 @@ export default class Student extends React.Component {
   }
 
   render() {
+    global.role = "teacher";
     //   console.error(this.state.students);
-      var Students = this.state.students.map((student)=>(
-          <ListItem avatar key={student.id}>
-              <Left>
-                <Thumbnail source={{ uri: "Image URL" }} />
-              </Left>
-              <Body>
-                <Text>{student.name}</Text>
-                <Text note>
-                  {student.id}
-                </Text>
-              </Body>
-              {/*<Right>
+    var Students = this.state.students.map(student =>
+      <ListItem avatar key={student.id}>
+        <Left>
+          <Thumbnail source={{ uri: "Image URL" }} />
+        </Left>
+        <Body>
+          <Text>{student.name}</Text>
+          <Text note>
+            {student.id}
+          </Text>
+        </Body>
+        {/*<Right>
                 <Text note>3:43 pm</Text>*/}
-              {/*</Right>*/}
-            </ListItem>
-      ));
+        {/*</Right>*/}
+      </ListItem>
+    );
     /*return (
       <Container>
         <Content>
@@ -68,20 +69,20 @@ export default class Student extends React.Component {
 
     // var items = ['Simon Mignolet','Nathaniel Clyne','Dejan Lovren','Mama Sakho','Emre Can'];
     return (
-      <Container>
+      <Container style={{ paddingTop: Platform.OS !== "ios" ? 54 : 64 }}>
         <Content>
-          <List dataArray={this.state.students}
-            renderRow={(student) =>
+          <List
+            dataArray={this.state.students}
+            renderRow={student =>
               <ListItem>
                 <Body>
-                <Text>{student.name}</Text>
-                <Text note>
-                  {student.id}
-                </Text>
+                  <Text>{student.name}</Text>
+                  <Text note>
+                    {student.id}
+                  </Text>
                 </Body>
-              </ListItem>
-            }>
-          </List>
+              </ListItem>}
+          />
         </Content>
       </Container>
     );

@@ -7,9 +7,11 @@ import {
   Item,
   Input,
   Label,
-  Icon
+  Icon,
+  Button,
+  Text
 } from "native-base";
-import { Button, Text } from "native-base";
+import Animation from "./Animation";
 import { Actions } from "react-native-router-flux";
 
 export default class LoginForm extends Component {
@@ -29,40 +31,45 @@ export default class LoginForm extends Component {
   render() {
     const { height: screenHeight } = Dimensions.get("window");
     return (
-      <Container style={{ padding: 10 }}>
-        <Content>
-          <Icon
-            name="planet"
-            style={{
-              fontSize: 80,
-              alignSelf: "center",
-              paddingTop: screenHeight / 8,
-              color: "steelblue",
-              alignItems: "center"
-            }}
-          />
+      <Container
+        style={{
+          padding: 10
+        }}
+      >
+        <Container
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            flex: 1
+          }}
+        >
+          <Animation />
 
-          <Form style={{height:screenHeight/3}}>
-            <Item floatingLabel>
-              <Label>用户名</Label>
-              <Input
-                value={this.state.username}
-                onChangeText={e => this.setState({ username: e })}
-              />
-            </Item>
-            <Item floatingLabel last>
-              <Label>密 码</Label>
-              <Input
-                value={this.state.password}
-                onChangeText={e => this.setState({ password: e })}
-              />
-            </Item>
-          </Form>
-    
-          <Button block primary onPress={this.state.handleLogin}>
-            <Text>登 录</Text>
-          </Button>
-        </Content>
+        </Container>
+        <Container style={{ flex: 2 }}>
+          <Content>
+            <Form style={{ paddingBottom: 100 }}>
+              <Item floatingLabel>
+                <Label>用户名</Label>
+                <Input
+                  value={this.state.username}
+                  onChangeText={e => this.setState({ username: e })}
+                />
+              </Item>
+              <Item floatingLabel last>
+                <Label>密 码</Label>
+                <Input
+                  value={this.state.password}
+                  onChangeText={e => this.setState({ password: e })}
+                />
+              </Item>
+            </Form>
+
+            <Button block primary onPress={this.state.handleLogin}>
+              <Text>登 录</Text>
+            </Button>
+          </Content>
+        </Container>
       </Container>
     );
   }

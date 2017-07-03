@@ -63,7 +63,7 @@ export default class ListView extends Component {
                         <Text>{task.title}</Text>
                         <Text note>{task.description}</Text>
                       </Col>
-                      <Col size={4}>
+                      <Col size={5}>
                         <Badge success>
                           <Text>{statusDict[task.status]}</Text>
                         </Badge>

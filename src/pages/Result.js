@@ -7,7 +7,7 @@ import {
   Text,
   Left,
   Body,
-  Icon
+  Icon,List,ListItem
 } from "native-base";
 import BarChart from "../components/BarChart";
 import update from "react-addons-update";
@@ -62,7 +62,13 @@ export default class Result extends React.Component {
 
           <CardItem>
             <Body>
-              {/*<BarChart data={this.state.scores[index]} />*/}
+              <List
+                dataArray={res.testResult.testCases}
+                renderRow={item =>
+                  <ListItem>
+                    <Text>{item.name}</Text>
+                  </ListItem>}
+              />
             </Body>
           </CardItem>
         </Card>

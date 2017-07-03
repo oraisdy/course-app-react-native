@@ -68,7 +68,6 @@ export class Tasks extends Component {
           </Button>
         </Header>
         <ListView tasks={this.state.tasks} />
-         {/*<TabBar />*/}
       </Container>
     );
   }

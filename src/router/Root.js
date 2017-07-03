@@ -18,7 +18,8 @@ class Root extends Component {
       <Container>
         <Router
           navigationBarStyle={{
-            backgroundColor: Color.segmentBackgroundColor
+            backgroundColor: Color.segmentBackgroundColor,
+            borderBottomWidth:0
           }}
           titleStyle={{ color: "#FFF" }}
           barButtonTextStyle={{
@@ -74,7 +75,6 @@ class Root extends Component {
               key="student_assignment"
               component={Assignment}
               title="作业"
-              style={{ paddingTop: Platform.OS !== "ios" ? 54 : 64 }}
               navigationBarStyle={{
                 backgroundColor: Color.segmentBackgroundColor
               }}

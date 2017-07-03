@@ -9,16 +9,19 @@ import {
   Body,
   Icon
 } from "native-base";
+import BarChart from "../components/BarChart";
 import update from "react-addons-update";
 import request from "../api/request";
 import api from "../api/api";
 
-export default class QuestionList extends React.Component {
+export default class Result extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       task: props.task,
-      questions: props.task.questions
+      questions: props.task.questions,
+      student: props.student,
+      questionResults: []
     };
   }
 
@@ -28,43 +31,38 @@ export default class QuestionList extends React.Component {
 
   requestData() {
     request.get(
-      api.readme,
+      api.analysis,
       data => {
+        var questionResults = [];
+        data.questionResults.map((ques, index) => {
+          questionResults.push(ques);
+        });
         this.setState({
-          questions: update(this.state.questions, {
-            0: { readme: { $set: data.content } }
-          })
+          questionResults: questionResults
         });
       },
-      [this.state.task.id, 227, 26]
+      [38, 256] //this.state.task.id
     );
   }
 
   render() {
-    var Cards = this.state.questions.map(question => {
+    var Cards = this.state.questionResults.map((res, index) => {
       return (
-        <Card key={question.id}>
+        <Card key={res.questionId}>
 
           <CardItem>
             <Left>
               <Icon active name="paper" />
               <Body>
-                <Text>{question.title}</Text>
-                <Text note>难度：{question.difficulty}</Text>
+                <Text>{res.questionTitle}</Text>
+                {/*<Text note>难度：{question.difficulty}</Text>*/}
               </Body>
             </Left>
           </CardItem>
 
           <CardItem>
             <Body>
-              <Text>
-                描述：{question.description}
-              </Text>
-              <Text>
-                Readme：
-                {question.readme}
-              </Text>
-
+              {/*<BarChart data={this.state.scores[index]} />*/}
             </Body>
           </CardItem>
         </Card>

@@ -21,6 +21,7 @@ export default class Login extends Component {
     request.login(api.auth, { username, password }).then(json => {
       if (json) {
         global.role = json.type;
+        global.id = json.id;
         if (json.type === "teacher") {
           Actions.teacher_page();
         } else if (json.type === "student") {

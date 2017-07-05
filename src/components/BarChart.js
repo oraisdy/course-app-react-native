@@ -1,6 +1,8 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Dimensions } from "react-native";
 import Chart from "react-native-chart";
+
+const { width: screenWidth } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
@@ -10,7 +12,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white"
   },
   chart: {
-    width: 380,
+    width: width*0.8,
     height: 200
   }
 });

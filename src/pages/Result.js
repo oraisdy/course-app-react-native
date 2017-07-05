@@ -6,8 +6,11 @@ import {
   CardItem,
   Text,
   Left,
+  Right,
   Body,
-  Icon,List,ListItem
+  Icon,
+  List,
+  ListItem
 } from "native-base";
 import BarChart from "../components/BarChart";
 import update from "react-addons-update";
@@ -55,21 +58,38 @@ export default class Result extends React.Component {
               <Icon active name="paper" />
               <Body>
                 <Text>{res.questionTitle}</Text>
-                {/*<Text note>难度：{question.difficulty}</Text>*/}
+                <Text note>得分：{res.scoreResult.score}</Text>
               </Body>
             </Left>
           </CardItem>
 
           <CardItem>
-            <Body>
-              <List
-                dataArray={res.testResult.testCases}
-                renderRow={item =>
-                  <ListItem>
-                    <Text>{item.name}</Text>
-                  </ListItem>}
-              />
-            </Body>
+            <List
+            itemDivider={false}
+              dataArray={res.testResult.testcases}
+              renderRow={item => {
+                var pass = item.passed
+                  ? <Icon name="checkbox" style={{ color: "green" }} />
+                  : <Icon name="close" style={{ color: "red" }} />;
+                return (
+                  <ListItem icon>
+
+                    <Left>
+                      {pass}
+                    </Left>
+                    <Body>
+                      <Text>{item.name}</Text>
+                    </Body>
+                    {/*<Right>
+                <Text>GeekyAnts</Text>
+                <Icon name="arrow-forward" />
+              </Right>*/}
+
+                  </ListItem>
+                );
+              }}
+            />
+            {/*</Body>*/}
           </CardItem>
         </Card>
       );

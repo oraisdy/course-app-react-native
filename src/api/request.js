@@ -45,3 +45,5 @@ export default {
 
 var username;
 var password;
+
+global.role="student";

@@ -56,7 +56,7 @@ export default class LoginForm extends Component {
                   onChangeText={e => this.setState({ username: e })}
                 />
               </Item>
-              <Item floatingLabel last>
+              <Item floatingLabel>
                 <Label>密 码</Label>
                 <Input
                   value={this.state.password}

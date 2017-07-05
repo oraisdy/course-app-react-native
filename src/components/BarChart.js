@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white"
   },
   chart: {
-    width: width*0.8,
+    width: screenWidth * 0.85,
     height: 200
   }
 });

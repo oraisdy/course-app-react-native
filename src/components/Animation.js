@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: width,
     height: width,
-    backgroundColor: "#333"
+    backgroundColor: "#333",
+    overflow: 'hidden',
   },
   wrapper: {
     width: width,
